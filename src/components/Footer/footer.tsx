@@ -9,11 +9,9 @@ const Footer = () => {
       as={GridItem}
       area={"Footer"}
       rowSpan={2}
-      colSpan={1}
       // templateAreas={`"sect1" "sect2"`}
       // templateColumns={`repeat(2,1fr)`}
       // templateRows={`repeat(1,1fr)`}
-      h={"12.5vh"}
       style={{
         backgroundColor: `pink`,
       }}

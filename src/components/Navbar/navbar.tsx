@@ -12,8 +12,6 @@ export default function Navbar() {
         backgroundColor: `pink`,
       }}
       rowSpan={2}
-      colSpan={1}
-      h={"10vh"}
     >
       <Nav.Brand />
       <Divider orientation="vertical" />

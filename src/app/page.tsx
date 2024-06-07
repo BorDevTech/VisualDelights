@@ -1,7 +1,8 @@
 "use client";
 
+import CallToAction from "@/components/CTA/CallToAction";
 import {
-  AbsoluteCenter,
+  Box,
   Grid,
   GridItem,
   HStack,
@@ -16,7 +17,7 @@ import {
 export default function Home() {
   return (
     <>
-      <GridItem area={`sect1`} colSpan={1} rowSpan={1}>
+      <GridItem colSpan={8} rowSpan={1}>
         <Text>
           Indulge in the tranquility of a pristine home with Visual Delights'
           comprehensive cleaning and reorganization services. From simple weekly
@@ -24,22 +25,7 @@ export default function Home() {
           meticulously curated a range of options to cater to your every need.
         </Text>
       </GridItem>
-      <GridItem area={`sect2`} colSpan={1} rowSpan={1}>
-        <AbsoluteCenter>
-          <Card w={"50vw"}>
-            <Text alignContent={`center`} justifyContent={`center`}>
-              Contact Visual Delights today! Get a personalized consultation and
-              let us create a home that reflects your aspirations for a life of
-              comfort, serenity, and organization!
-            </Text>
-            <ButtonGroup alignItems={`center`}>
-              <Button>Contact Us</Button>
-              <Divider orientation="vertical" />
-              <Button>See Pricing</Button>
-            </ButtonGroup>
-          </Card>
-        </AbsoluteCenter>
-      </GridItem>
+      <CallToAction />
     </>
   );
 }

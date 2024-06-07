@@ -29,25 +29,21 @@ export default function RootLayout({
           <Grid
             templateAreas={` "Nav" "Display" "Footer" `}
             templateRows={`repeat(20,1fr)`}
-            templateColumns={`repeat(1,1fr)`}
             h={"100vh"}
           >
             <Navbar />
-            <Grid
-              as={GridItem}
+            <GridItem
+              as={Grid}
               area={"Display"}
               style={{
                 backgroundColor: `transparent`,
               }}
               rowSpan={16}
-              colSpan={1}
-              // templateAreas={`"sect1 sect2"`}
-              // templateColumns={`repeat(1,1fr)`}
-              // templateRows={`repeat(1,1fr)`}
-              h={"90vh"}
+              templateColumns={`repeat(8,1fr)`}
+              templateRows={`repeat(8,1fr)`}
             >
               {children}
-            </Grid>
+            </GridItem>
             <Footer />
           </Grid>
         </Provider>
