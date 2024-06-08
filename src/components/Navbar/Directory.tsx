@@ -1,5 +1,5 @@
 "use client";
-import { HStack, Text } from "@chakra-ui/layout";
+import { Stack, Heading } from "@chakra-ui/layout";
 
 import { Link } from "@chakra-ui/next-js";
 import React, { ReactNode } from "react";
@@ -11,10 +11,13 @@ export default function Directory() {
     { name: "test2", href: "/about" },
   ];
   return (
-    <HStack
-      style={{
-        padding: `0px 20px`,
-      }}
+    <Stack
+      direction={`row`}
+      spacing={`20px`}
+      paddingX={`20px`}
+      // style={{
+      //   padding: `0px 20px`,
+      // }}
     >
       {DirLinks.map((route) => (
         <Link
@@ -24,16 +27,16 @@ export default function Directory() {
             textDecoration: `none`,
           }}
         >
-          <Text
+          <Heading
             as={"h2"}
             style={{
               color: `deeppink`,
             }}
           >
             {route.name}
-          </Text>
+          </Heading>
         </Link>
       ))}
-    </HStack>
+    </Stack>
   );
 }

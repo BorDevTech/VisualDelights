@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <Grid
       as={GridItem}
-      area={"Footer"}
+      rowStart={19}
       rowSpan={2}
       // templateAreas={`"sect1" "sect2"`}
       // templateColumns={`repeat(2,1fr)`}

@@ -1,20 +1,20 @@
 "use client";
 
-import { HStack, Heading, Divider, GridItem } from "@chakra-ui/layout";
+import { HStack, Heading, Spacer, GridItem } from "@chakra-ui/layout";
 import * as Nav from "./index";
 
 export default function Navbar() {
   return (
     <HStack
       as={GridItem}
-      area={"Nav"}
       style={{
         backgroundColor: `pink`,
       }}
+      rowStart={1}
       rowSpan={2}
+      colSpan={1}
     >
       <Nav.Brand />
-      <Divider orientation="vertical" />
       <Nav.Directory />
     </HStack>
   );
