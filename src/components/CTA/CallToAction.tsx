@@ -1,3 +1,4 @@
+import { Link } from "@chakra-ui/next-js";
 import {
   Stack,
   Button,
@@ -20,7 +21,8 @@ const CallToAction = () => {
       <Stack direction={`row`}>
         <Button size={`md`}>Contact Us</Button>
         <Spacer />
-        <Button size={`md`}>See Pricing</Button>
+        <Button as={Link} href= {"/pricing"}
+        size={`md`}>See Pricing</Button>
       </Stack>
     </Card>
   );
