@@ -6,33 +6,24 @@ import React, { ReactNode } from "react";
 
 export default function Directory() {
   const DirLinks = [
-    { name: "test", href: "/test" },
-    { name: "test1", href: "/blog" },
-    { name: "test2", href: "/about" },
+    { name: "about", href: "/about" },
+    { name: "blog", href: "/blog" },
+    { name: "contact", href: "/contact" },
   ];
   return (
     <Stack
       direction={`row`}
       spacing={`20px`}
       paddingX={`20px`}
-      // style={{
-      //   padding: `0px 20px`,
-      // }}
+      color={`darkviolet`}
     >
       {DirLinks.map((route) => (
         <Link
           key={route.name}
           href={route.href}
-          style={{
-            textDecoration: `none`,
-          }}
+          _hover={{ textDecoration: `none` }}
         >
-          <Heading
-            as={"h2"}
-            style={{
-              color: `deeppink`,
-            }}
-          >
+          <Heading as={"h2"} size={"lg"}>
             {route.name}
           </Heading>
         </Link>

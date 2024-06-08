@@ -22,15 +22,8 @@ export default function Home() {
   return (
     <Grid templateRows={`repeat(20,1fr)`} h={"100vh"}>
       <Navbar />
-      <GridItem
-        style={{
-          backgroundColor: `transparent`,
-        }}
-        rowSpan={16}
-      >
+      <GridItem bg={`transparent`} rowSpan={16}>
         <GridItem rowStart={3} rowSpan={16}>
-          <Text>daw</Text>
-
           <Text>
             Indulge in the tranquility of a pristine home with Visual Delights'
             comprehensive cleaning and reorganization services. From simple

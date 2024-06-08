@@ -1,6 +1,6 @@
 "use client";
 
-import { Heading, Stack, Image, Box } from "@chakra-ui/react";
+import { Heading, Flex, Stack, Image, Box, Text } from "@chakra-ui/react";
 import React from "react";
 
 import { Playball } from "next/font/google";
@@ -15,31 +15,32 @@ const playball = Playball({
 
 export default function Brand() {
   return (
-    <Stack direction={`row`} align={`center`}>
-      <Image src={imager.src} w={`100px`} padding={`10px 10px`} />
-      <Heading
-        as={"h1"}
-        size={`3xl`}
-        noOfLines={0}
-        style={{ ...playball.style }}
-        padding={`10px 10px`}
-      >
-        Visual Delights
-      </Heading>
+    <Stack direction={`row`} align={`center`} color={`darkviolet`}>
+      <Link href={`/`}>
+        <Image
+          src={imager.src}
+          alt="Butterfly"
+          w={`100px`}
+          margin={`0 0 0 10px`}
+          padding={`10px 10px`}
+        />
+      </Link>
+      <Link href={`/`} _hover={{ textDecoration: `none` }}>
+        <Heading
+          as={"h1"}
+          size={`3xl`}
+          noOfLines={0}
+          style={{ ...playball.style }}
+          padding={`10px 10px`}
+        >
+          <Flex>
+            Visual Delights
+            <sub style={{ alignSelf: `center` }}>
+              <Text fontSize={`2xl`}> -cleaning services</Text>{" "}
+            </sub>
+          </Flex>
+        </Heading>
+      </Link>
     </Stack>
-    // <Stack direction={`row`}>
-    //   <Link href="/" color={`deeppink`}>
-    //     <Image src={imager.src}></Image>
-    //     <Heading
-    //       as={"h1"}
-    //       style={{
-    //         ...playball.style,
-    //         padding: "0px 20px ",
-    //       }}
-    //     >
-    //       Visual Delights
-    //     </Heading>
-    //   </Link>
-    // </Stack>
   );
 }

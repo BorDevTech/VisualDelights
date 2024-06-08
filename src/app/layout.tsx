@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import icon from "@/app/visualDelights.png";
 
+import { Inter } from "next/font/google";
+
+export const inter = Inter({ subsets: ["latin"] });
+
 export const metadata: Metadata = {
   title: "Visual Delights",
   description: "Site created by BorDevTech",
@@ -14,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={inter.className}>
         <Provider>{children}</Provider>
       </body>
     </html>

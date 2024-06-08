@@ -15,6 +15,7 @@ export default function Navbar() {
       colSpan={1}
     >
       <Nav.Brand />
+      <Spacer />
       <Nav.Directory />
     </HStack>
   );
