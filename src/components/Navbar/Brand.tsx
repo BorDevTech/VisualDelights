@@ -1,17 +1,11 @@
 "use client";
 
-import { Heading, Flex, Stack, Image, Box, Text } from "@chakra-ui/react";
+import { Heading, Flex, Stack, Image, Text } from "@chakra-ui/react";
 import React from "react";
 
-import { Playball } from "next/font/google";
 import { Link } from "@chakra-ui/next-js";
 import imager from "../../app/visualDelights.png";
-
-const playball = Playball({
-  weight: "400",
-  preload: true,
-  subsets: ["latin"],
-});
+import { playball } from "@/app/fonts";
 
 export default function Brand() {
   return (
@@ -30,7 +24,7 @@ export default function Brand() {
           as={"h1"}
           size={`3xl`}
           noOfLines={0}
-          style={{ ...playball.style }}
+          style={playball?.style}
           padding={`10px 10px`}
         >
           <Flex>

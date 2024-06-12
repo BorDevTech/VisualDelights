@@ -1,20 +1,6 @@
 "use client";
 
-import {
-  AbsoluteCenter,
-  SimpleGrid,
-  Grid,
-  GridItem,
-  HStack,
-  Heading,
-  Divider,
-  Text,
-  Box,
-  Center,
-  Button,
-  ButtonGroup,
-  Card,
-} from "@chakra-ui/react";
+import { AbsoluteCenter, Grid, GridItem } from "@chakra-ui/react";
 import Navbar from "@/components/Navbar/navbar";
 import Footer from "@/components/Footer/footer";
 
@@ -28,6 +14,9 @@ export default function Home() {
         <AbsoluteCenter>
           <CallToAction />
         </AbsoluteCenter>
+      </GridItem>
+      <GridItem bg={`pink`} rowStart={19} rowSpan={2}>
+        <Footer />
       </GridItem>
     </Grid>
   );

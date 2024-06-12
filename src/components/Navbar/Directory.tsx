@@ -2,8 +2,6 @@
 import { Stack, Heading } from "@chakra-ui/layout";
 
 import { Link } from "@chakra-ui/next-js";
-import React, { ReactNode } from "react";
-
 export default function Directory() {
   const DirLinks = [
     { name: "about", href: "/about" },

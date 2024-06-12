@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import icon from "@/app/visualDelights.png";
 
 import { Inter } from "next/font/google";
 

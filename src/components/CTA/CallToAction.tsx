@@ -1,17 +1,15 @@
 import { Link } from "@chakra-ui/next-js";
 import {
-  Stack,
   Button,
-  GridItem,
-  Spacer,
   Card,
   Text,
-  Grid,
   Center,
   HStack,
   Heading,
+  ButtonGroup,
 } from "@chakra-ui/react";
 import React from "react";
+import { MdCall, MdOutlineNavigateNext } from "react-icons/md";
 
 const CallToAction = () => {
   return (
@@ -30,15 +28,28 @@ const CallToAction = () => {
 
       <Center>
         <HStack spacing={"24px"}>
-          <Button
-            size="lg"
-            as={Link}
-            href={"/pricing"}
-            colorScheme={"purple"}
-            mt="24px"
-          >
-            Request a Free Estimate
-          </Button>
+          <ButtonGroup spacing="2">
+            <Button
+              size="lg"
+              as={Link}
+              href={"/pricing"}
+              colorScheme={"purple"}
+              mt="24px"
+              leftIcon={<MdCall />}
+            >
+              Get a Free Estimate
+            </Button>
+            <Button
+              size="lg"
+              as={Link}
+              href={"/pricing"}
+              colorScheme={"purple"}
+              mt="24px"
+              rightIcon={<MdOutlineNavigateNext />}
+            >
+              Browse Packages
+            </Button>
+          </ButtonGroup>
         </HStack>
       </Center>
     </Card>

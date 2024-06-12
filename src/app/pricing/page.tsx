@@ -37,7 +37,7 @@ const page = () => {
           </Heading>
         </Center>
         <HStack spacing={24}>
-          <Card w={80} h={80 * 8.2} boxShadow="0em 0em 10em purple">
+          <Card w={80} h={80 * 8.2} boxShadow="0em 0em 6em #6B46C1">
             <CardHeader>
               <Center>
                 <Heading as={`h3`} size={`lg`} p={"4px 0"}>
@@ -81,7 +81,7 @@ const page = () => {
               </CardFooter>
             </Center>
           </Card>
-          <Card w={80} h={80 * 8.2} boxShadow="0em 0em 10em purple">
+          <Card w={80} h={80 * 8.2} boxShadow="0em 0em 6em #6B46C1">
             <CardHeader>
               <Center>
                 <Heading as={`h3`} size={`lg`} p={"4px 0"}>
@@ -127,7 +127,7 @@ const page = () => {
               </CardFooter>
             </Center>
           </Card>
-          <Card w={80} h={80 * 8.2} boxShadow="0em 0em 10em purple">
+          <Card w={80} h={80 * 8.2} boxShadow="0em 0em 6em #6B46C1">
             <CardHeader>
               <Center>
                 <Heading as={`h3`} size={`lg`} p={"4px 0"}>
