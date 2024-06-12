@@ -2,6 +2,7 @@
 
 import {
   AbsoluteCenter,
+  SimpleGrid,
   Grid,
   GridItem,
   HStack,
@@ -9,6 +10,7 @@ import {
   Divider,
   Text,
   Box,
+  Center,
   Button,
   ButtonGroup,
   Card,
@@ -24,17 +26,11 @@ export default function Home() {
       <Navbar />
       <GridItem bg={`transparent`} rowSpan={16}>
         <GridItem rowStart={3} rowSpan={16}>
-          <Text>
-            Indulge in the tranquility of a pristine home with Visual Delights'
-            comprehensive cleaning and reorganization services. From simple
-            weekly maid services to thorough big cleanups and deep cleaning, we
-            have meticulously curated a range of options to cater to your every
-            need.
-          </Text>
-          <CallToAction />
+          <AbsoluteCenter>
+            <CallToAction />
+          </AbsoluteCenter>
         </GridItem>
       </GridItem>
-      <Footer />
     </Grid>
   );
 }

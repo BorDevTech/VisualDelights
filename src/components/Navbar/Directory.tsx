@@ -15,7 +15,7 @@ export default function Directory() {
       direction={`row`}
       spacing={`20px`}
       paddingX={`20px`}
-      color={`darkviolet`}
+      color={`purple.600`}
     >
       {DirLinks.map((route) => (
         <Link

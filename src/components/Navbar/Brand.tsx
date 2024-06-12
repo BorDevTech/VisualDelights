@@ -15,7 +15,7 @@ const playball = Playball({
 
 export default function Brand() {
   return (
-    <Stack direction={`row`} align={`center`} color={`darkviolet`}>
+    <Stack direction={`row`} align={`center`} color={`purple.600`}>
       <Link href={`/`}>
         <Image
           src={imager.src}
