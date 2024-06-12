@@ -32,7 +32,7 @@ const CallToAction = () => {
             <Button
               size="lg"
               as={Link}
-              href={"/pricing"}
+              href={"/estimate"}
               colorScheme={"purple"}
               mt="24px"
               leftIcon={<MdCall />}
