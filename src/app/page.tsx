@@ -24,12 +24,10 @@ export default function Home() {
   return (
     <Grid templateRows={`repeat(20,1fr)`} h={"100vh"}>
       <Navbar />
-      <GridItem bg={`transparent`} rowSpan={16}>
-        <GridItem rowStart={3} rowSpan={16}>
-          <AbsoluteCenter>
-            <CallToAction />
-          </AbsoluteCenter>
-        </GridItem>
+      <GridItem bg={`transparent`} rowStart={3} rowSpan={16}>
+        <AbsoluteCenter>
+          <CallToAction />
+        </AbsoluteCenter>
       </GridItem>
     </Grid>
   );
