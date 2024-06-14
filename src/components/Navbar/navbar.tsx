@@ -1,5 +1,6 @@
 import { HStack, Spacer, GridItem } from "@chakra-ui/layout";
 import * as Nav from "./index";
+import DMB from "@/components/Button/DMB";
 
 export default function Navbar() {
   return (
@@ -7,6 +8,7 @@ export default function Navbar() {
       <Nav.Brand />
       <Spacer />
       <Nav.Directory />
+      <DMB />
     </HStack>
   );
 }
