@@ -10,7 +10,6 @@ import {
   Card,
   Radio,
   RadioGroup,
-  Button,
   IconButton,
   Text,
   Container,
@@ -19,17 +18,22 @@ import {
   Box,
   Heading,
   Skeleton,
-  NumberInput,
-  NumberInputField,
   PinInput,
   PinInputField,
 } from "@chakra-ui/react";
 import React from "react";
+import TesterRadio, { RadioType } from "./components/test";
+import {
+  RiNumber1,
+  RiNumber2,
+  RiNumber3,
+  RiNumber4,
+  RiNumber5,
+  RiNumber6,
+} from "react-icons/ri";
 
 export default function page() {
   const apiKey = "AIzaSyBRyZFSdwkBSjmXaC71HHQnxt06iTGkY8E";
-
-  const [value, setValue] = React.useState("1");
 
   const [form, setForm] = React.useState({
     firstName: "",
@@ -37,11 +41,6 @@ export default function page() {
     email: "",
     phoneNumber: "",
     address: "",
-    bedrooms: "1",
-    bathrooms: "1",
-  });
-
-  const [formRadio, setFormRadio] = React.useState({
     bathrooms: "1",
     bedrooms: "1",
   });
@@ -50,9 +49,43 @@ export default function page() {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
-  const handleRadio = (name: string) => (nextValue: string) => {
-    setFormRadio((prev) => ({ ...prev, [name]: nextValue }));
+
+  const handleRadioChange = (nextValue: string, name: string) => {
+    setForm((prev) => ({ ...prev, [name]: nextValue }));
   };
+
+  const BathroomRadios: RadioType[] = [
+    {
+      name: "Bathroom",
+      defaultValue: "1",
+      radioList: [
+        {
+          value: "1",
+          element: <RiNumber1 />,
+        },
+        {
+          value: "2",
+          element: <RiNumber2 />,
+        },
+        {
+          value: "3",
+          element: <RiNumber3 />,
+        },
+        {
+          value: "4",
+          element: <RiNumber4 />,
+        },
+        {
+          value: "5",
+          element: <RiNumber5 />,
+        },
+        {
+          value: "6",
+          element: <RiNumber6 />,
+        },
+      ],
+    },
+  ];
 
   return (
     <>
@@ -100,13 +133,13 @@ export default function page() {
                   <Skeleton height="20px" />
                 )}
                 <Text>Address Descriptor</Text>
-                {formRadio?.bedrooms !== "" ? (
-                  <Text>{formRadio?.bedrooms}</Text>
+                {form?.bedrooms !== "" ? (
+                  <Text>{form?.bedrooms}</Text>
                 ) : (
                   <Skeleton height="20px" />
                 )}
-                {formRadio?.bathrooms !== "" ? (
-                  <Text>{formRadio?.bathrooms}</Text>
+                {form?.bathrooms !== "" ? (
+                  <Text>{form?.bathrooms}</Text>
                 ) : (
                   <Skeleton height="20px" />
                 )}
@@ -127,7 +160,8 @@ export default function page() {
                 size="sm"
               />
             </FormLabel>
-
+          </FormControl>
+          <FormControl>
             <FormLabel>
               Last Name: {form?.lastName}
               <Input
@@ -138,6 +172,8 @@ export default function page() {
                 size="sm"
               />
             </FormLabel>
+          </FormControl>
+          <FormControl>
             <FormLabel>
               Email Address:{form.email}
               <Input
@@ -149,6 +185,8 @@ export default function page() {
               />
               <FormHelperText>We'll never share your email.</FormHelperText>
             </FormLabel>
+          </FormControl>
+          <FormControl>
             <FormLabel>
               Phone:
               <PinInput type="number">
@@ -164,55 +202,40 @@ export default function page() {
               </PinInput>
               <FormHelperText>We'll never share your email.</FormHelperText>
             </FormLabel>
+          </FormControl>
+
+          <FormControl>
             <FormLabel>
-              Bedrooms:
+              Bedrooms:{form.bedrooms}
               <RadioGroup
-                onChange={(nextValue) => handleRadio("bedrooms")(nextValue)}
-                value={value}
+                onChange={(nextValue) =>
+                  handleRadioChange(nextValue, "bedrooms")
+                }
+                value={form.bedrooms}
               >
                 <Stack direction="row">
-                  <Radio value="1">First</Radio>
-                  <Radio value="2">Second</Radio>
-                  <Radio value="3">Third</Radio>
+                  <Radio value="1">1 Bedroom</Radio>
+                  <Radio value="2">2 Bedrooms</Radio>
+                  <Radio value="3">3 Bedrooms</Radio>
                 </Stack>
               </RadioGroup>
             </FormLabel>
-            <FormHelperText>We'll never share your email.</FormHelperText>
+          </FormControl>
+          <FormControl>
             <FormLabel>
-              Bathrooms: {form?.bathrooms}
+              Bathrooms: {form.bathrooms}
               <RadioGroup
-                onChange={handleRadio}
-                value={formRadio?.bathrooms}
-                name="bathrooms"
+                onChange={(nextValue) =>
+                  handleRadioChange(nextValue, "bathrooms")
+                }
+                value={form.bathrooms}
               >
-                <IconButton
-                  as={Radio}
-                  aria-label="Search database"
-                  icon={<SearchIcon />}
-                  value="1"
-                >
-                  1
-                </IconButton>
-                <IconButton
-                  as={Radio}
-                  aria-label="Search database"
-                  icon={<SearchIcon />}
-                  value="2"
-                >
-                  2
-                </IconButton>
-                <IconButton
-                  as={Radio}
-                  aria-label="Search database"
-                  icon={<SearchIcon />}
-                  value="3"
-                >
-                  3
-                </IconButton>
                 <CustomRadio />
+                <TesterRadio radios={BathroomRadios} />
               </RadioGroup>
             </FormLabel>
-            <FormHelperText>We'll never share your email.</FormHelperText>
+          </FormControl>
+          <FormControl>
             <FormLabel>
               SqFt:
               <Input type="number" />

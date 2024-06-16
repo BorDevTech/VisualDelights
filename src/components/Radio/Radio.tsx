@@ -1,11 +1,5 @@
 import { SearchIcon } from "@chakra-ui/icons";
-import {
-  Box,
-  HStack,
-  IconButton,
-  useRadio,
-  useRadioGroup,
-} from "@chakra-ui/react";
+import { Box, HStack, useRadio, useRadioGroup } from "@chakra-ui/react";
 
 import { RiNumber1, RiNumber2, RiNumber3, RiNumber4 } from "react-icons/ri";
 function RadioCard({ ...props }) {
@@ -69,11 +63,12 @@ function Example() {
 
   return (
     <HStack {...group}>
-      {options.map((value) => {
+      {options.map((items) => {
+        const { value, element } = items;
         const radio = getRadioProps({ value });
         return (
-          <RadioCard key={value.value} {...radio}>
-            {value.element}
+          <RadioCard key={value} {...radio}>
+            {element}
           </RadioCard>
         );
       })}
