@@ -57,8 +57,8 @@ export default function page() {
       </Center>
       <Stack direction={"row"}>
         <InteractiveMap />
-        <GenerativeQuote form={form} />
-        <EstimateForm formData={form} />
+        <GenerativeQuote formData={form} />
+        <EstimateForm formData={form} formDataUpdater={setForm} />
       </Stack>
     </>
   );

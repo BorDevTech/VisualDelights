@@ -1,17 +1,5 @@
 import CustomRadio from "@/components/Radio/Radio";
-import {
-  Card,
-  Container,
-  FormControl,
-  FormHelperText,
-  FormLabel,
-  Input,
-  PinInput,
-  PinInputField,
-  Radio,
-  RadioGroup,
-  Stack,
-} from "@chakra-ui/react";
+import { Card, Container } from "@chakra-ui/react";
 import React from "react";
 import {
   RiNumber1,
@@ -35,6 +23,18 @@ interface FormRequirements {
     bedrooms: string;
     sqft: string;
   };
+  formDataUpdater: React.Dispatch<
+    React.SetStateAction<{
+      firstName: string;
+      lastName: string;
+      email: string;
+      phoneNumber: string;
+      address: string;
+      bathrooms: string;
+      bedrooms: string;
+      sqft: string;
+    }>
+  >;
 }
 
 const BathroomRadios: RadioType[] = [
@@ -70,24 +70,35 @@ const BathroomRadios: RadioType[] = [
   },
 ];
 
-const EstimateForm = ({ formData, ...props }: FormRequirements) => {
-  const [formState, setFormState] = React.useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phoneNumber: "",
-    address: "",
-    bathrooms: "1",
-    bedrooms: "1",
-    sqft: "0",
-  });
+const EstimateForm = ({
+  formData,
+  formDataUpdater,
+  ...props
+}: FormRequirements) => {
   const handleChange = (e: { target: { name: any; value: any } }) => {
     const { name, value } = e.target;
-    setFormState({ ...formState, [name]: value });
+    formDataUpdater({ ...formData, [name]: value });
+    console.log(value);
   };
 
   const handleRadioChange = (nextValue: string, name: string) => {
-    setFormState((prev) => ({ ...prev, [name]: nextValue }));
+    formDataUpdater((prev) => ({ ...prev, [name]: nextValue }));
+  };
+  const handleNumberChange = (
+    valueAsString: string,
+    valueAsNumber: number,
+    name: string
+  ) => {
+    console.log("Value as a number: " + valueAsNumber);
+    console.log("Value as a string: " + valueAsString);
+    valueAsNumber = Number(valueAsString);
+    formDataUpdater((prev) => ({ ...prev, [name]: valueAsNumber }));
+  };
+
+  const handleSliderChange = (value: number, name: string) => {
+    //average 6 bedroom house has about 4000sqft
+    console.log("Value as a slider: " + value);
+    formDataUpdater((prev) => ({ ...prev, [name]: value }));
   };
 
   return (
@@ -95,50 +106,53 @@ const EstimateForm = ({ formData, ...props }: FormRequirements) => {
       <Card as={"form"} action="submit"></Card>
       <FormController
         name="firstName"
-        formState={formState}
+        formState={formData}
         formInputType={`text`}
         FormUpdater={handleChange}
       />
       <FormController
         name="lastName"
-        formState={formState}
+        formState={formData}
         formInputType={`text`}
         FormUpdater={handleChange}
       />
       <FormController
         name="email"
         formInputType={`email`}
-        formState={formState}
+        formState={formData}
         FormUpdater={handleChange}
         formHelperMessage="We'll never share your email."
       />
       <FormController
         name="phoneNumber"
         formInputType={`tel`}
-        formState={formState}
+        formState={formData}
         FormUpdater={handleChange}
       />
 
       <FormController
         name="bedrooms"
         formInputType={`radio`}
-        formState={formState}
+        formState={formData}
         RadioUpdater={(nextValue) => handleRadioChange(nextValue, "bedrooms")}
       />
       <FormController
         name="bathrooms"
         formInputType={`radio`}
-        formState={formState}
+        formState={formData}
         RadioUpdater={(nextValue) => handleRadioChange(nextValue, "bathrooms")}
       />
       <FormController
         name="sqft"
-        formInputType={`text`}
-        formState={formState}
-        FormUpdater={handleChange}
+        formInputType={`number`}
+        formState={formData}
+        NumberUpdater={(valueAsString, valueAsNumber) =>
+          handleNumberChange(valueAsString, valueAsNumber, "sqft")
+        }
+        SliderUpdater={(value) => handleSliderChange(value, "sqft")}
       />
 
-      <FormControl>
+      {/* <FormControl>
         <FormLabel>
           Bathrooms: {formState?.bathrooms}
           <RadioGroup
@@ -149,7 +163,7 @@ const EstimateForm = ({ formData, ...props }: FormRequirements) => {
             <TesterRadio radios={BathroomRadios} />
           </RadioGroup>
         </FormLabel>
-      </FormControl>
+      </FormControl> */}
     </Container>
   );
 };

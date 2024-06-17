@@ -11,6 +11,11 @@ import {
   NumberInput,
   NumberInputField,
   NumberInputStepper,
+  Flex,
+  Slider,
+  SliderFilledTrack,
+  SliderThumb,
+  SliderTrack,
 } from "@chakra-ui/react";
 import React from "react";
 
@@ -23,7 +28,7 @@ interface FullFormState {
   address?: string;
   bathrooms?: string;
   bedrooms?: string;
-  sqft: string;
+  sqft?: string;
 }
 // Use the Pick utility type to create a type that has exactly one property from FullFormState
 type SingleFormStateProperty = Pick<FullFormState, keyof FullFormState>;
@@ -31,6 +36,9 @@ type SingleFormStateProperty = Pick<FullFormState, keyof FullFormState>;
 interface FormControllerProps {
   formState: SingleFormStateProperty;
   FormUpdater?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  RadioUpdater?: (nextValue: string) => void;
+  NumberUpdater?: (valueAsString: string, valueAsNumber: number) => void;
+  SliderUpdater?: (value: number) => void;
   name: keyof FullFormState;
   formInputType:
     | "text"
@@ -41,16 +49,17 @@ interface FormControllerProps {
     | "radio"
     | "number";
   formHelperMessage?: string;
-  RadioUpdater?: (nextValue: string) => void;
 }
 
 const FormController = ({
   name,
   formState,
   FormUpdater,
+  NumberUpdater,
+  RadioUpdater,
+  SliderUpdater,
   formInputType,
   formHelperMessage,
-  RadioUpdater,
 }: FormControllerProps) => {
   // Ensure that the value is a string or an empty string if undefined
   const toReadableLabel = (camelCaseString: string) => {
@@ -73,20 +82,44 @@ const FormController = ({
           </RadioGroup>
         ) : formInputType === "number" ? (
           <>
-            <NumberInput
-              defaultValue={15}
-              min={10}
-              max={20}
-              name={name}
-              value={inputValue}
-            >
-              <NumberInputField />
-              <NumberInputStepper>
-                <NumberIncrementStepper />
-                <NumberDecrementStepper />
-              </NumberInputStepper>
-            </NumberInput>
-            <Input onChange={FormUpdater} />
+            <Flex>
+              <NumberInput
+                maxW="100px"
+                mr="2rem"
+                onChange={NumberUpdater}
+                value={inputValue}
+                max={4500}
+                min={150}
+                step={100}
+              >
+                <NumberInputField />
+                <NumberInputStepper>
+                  <NumberIncrementStepper />
+                  <NumberDecrementStepper />
+                </NumberInputStepper>
+              </NumberInput>
+              <Slider
+                flex="1"
+                focusThumbOnChange={false}
+                value={Number(inputValue)}
+                onChange={SliderUpdater}
+                size={"md"}
+                max={4500}
+                min={150}
+                step={100}
+              >
+                <SliderTrack>
+                  <SliderFilledTrack />
+                </SliderTrack>
+                <SliderThumb
+                  fontSize={`0px`}
+                  boxSize="20px"
+                  children={inputValue}
+                />
+              </Slider>
+            </Flex>
+
+            {/* <Input onChange={FormUpdater} /> */}
             {formHelperMessage ? (
               <FormHelperText>{formHelperMessage}</FormHelperText>
             ) : null}
