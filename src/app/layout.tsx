@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import { Provider } from "./provider";
 import { inter } from "./fonts";
 import { ColorModeScript, theme } from "@chakra-ui/react";
