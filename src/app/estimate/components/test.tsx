@@ -105,16 +105,20 @@ export default function TesterRadio({ radios }: { radios: RadioType[] }) {
   );
 }
 
-const RadioButton = ({ ...props }) => {
+interface RadioButtonProps {
+  children: React.ReactNode;
+}
+
+const RadioButton = ({ children, ...props }: RadioButtonProps) => {
   const { getInputProps, getRadioProps } = useRadio(props);
-  const input = getInputProps();
-  const checkbox = getRadioProps();
+  const interactive = getInputProps();
+  const selective = getRadioProps();
   return (
     <>
       <Box as="label">
-        <input {...input} />
+        <input {...interactive} />
         <Box
-          {...checkbox}
+          {...selective}
           cursor="pointer"
           borderWidth="1px"
           borderRadius="md"
@@ -130,7 +134,7 @@ const RadioButton = ({ ...props }) => {
           px={5}
           py={3}
         >
-          {props.children}
+          {children}
         </Box>
       </Box>
     </>
