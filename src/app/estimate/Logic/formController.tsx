@@ -111,11 +111,7 @@ const FormController = ({
                 <SliderTrack>
                   <SliderFilledTrack />
                 </SliderTrack>
-                <SliderThumb
-                  fontSize={`0px`}
-                  boxSize="20px"
-                  children={inputValue}
-                />
+                <SliderThumb fontSize={`0px`} boxSize="20px" />
               </Slider>
             </Flex>
 

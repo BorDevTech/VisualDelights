@@ -1,42 +1,13 @@
 "use client";
-import CustomRadio from "@/components/Radio/Radio";
-import { SearchIcon } from "@chakra-ui/icons";
-import {
-  Stack,
-  FormControl,
-  FormHelperText,
-  FormLabel,
-  Input,
-  Card,
-  Radio,
-  RadioGroup,
-  IconButton,
-  Text,
-  Container,
-  Center,
-  AbsoluteCenter,
-  Box,
-  Heading,
-  Skeleton,
-  PinInput,
-  PinInputField,
-} from "@chakra-ui/react";
+import { Stack, Center, Heading } from "@chakra-ui/react";
 import React from "react";
-import TesterRadio, { RadioType } from "./components/test";
-import {
-  RiNumber1,
-  RiNumber2,
-  RiNumber3,
-  RiNumber4,
-  RiNumber5,
-  RiNumber6,
-} from "react-icons/ri";
 import InteractiveMap from "./components/interactiveMap";
 import GenerativeQuote from "./components/generativeQuote";
 import EstimateForm from "./components/estimateForm";
 
-export default function page() {
+export default function Estimate() {
   const apiKey = "AIzaSyBRyZFSdwkBSjmXaC71HHQnxt06iTGkY8E";
+
   const [form, setForm] = React.useState({
     firstName: "",
     lastName: "",

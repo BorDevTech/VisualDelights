@@ -17,7 +17,6 @@ export default function Home() {
     >
       <Navbar />
       <GridItem bg={`transparent`} rowStart={3} rowSpan={19}>
-        <Image />
         <AbsoluteCenter>
           <CallToAction />
         </AbsoluteCenter>
