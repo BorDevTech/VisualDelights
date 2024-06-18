@@ -1,9 +1,9 @@
 import Navbar from "@/components/Navbar/navbar";
 import React from "react";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
-export const metaData: Metadata = {
-  title: "Visual Delights | Estimate",
+export const metadata: Metadata = {
+  title: "Estimate",
   description: "Site created by BorDevTech",
 };
 

@@ -4,7 +4,7 @@ import { inter } from "./fonts";
 import { ColorModeScript, theme } from "@chakra-ui/react";
 
 export const metadata: Metadata = {
-  title: "Visual Delights",
+  title: { template: "Visual Delights | %s", default: `Visual Delights` },
   description: "Site created by BorDevTech",
 };
 

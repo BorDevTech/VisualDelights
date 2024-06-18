@@ -3,7 +3,6 @@
 import { AbsoluteCenter, Grid, GridItem, Image } from "@chakra-ui/react";
 import Navbar from "@/components/Navbar/navbar";
 import Footer from "@/components/Footer/footer";
-
 import CallToAction from "@/components/CTA/CallToAction";
 
 export default function Home() {
