@@ -21,7 +21,7 @@ export default function RootLayout({
       // className={inter.className}
       >
         <ClarityAnalytics ClarityTrackingID={"mupdzb93g6"} />
-        <GoogleAnalytics GoogleTrackingID="" />
+        <GoogleAnalytics GoogleTrackingID={"G-16SCX6MGYD"} />
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <Provider>{children}</Provider>
       </body>
