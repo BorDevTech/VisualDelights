@@ -3,6 +3,7 @@ import { Provider } from "./provider";
 import { inter } from "./fonts";
 import { ColorModeScript, theme } from "@chakra-ui/react";
 import ClarityAnalytics from "./clarity";
+import GoogleAnalytics from "./googleAnalytics";
 
 export const metadata: Metadata = {
   title: { template: "Visual Delights | %s", default: `Visual Delights` },
@@ -20,6 +21,7 @@ export default function RootLayout({
       // className={inter.className}
       >
         <ClarityAnalytics ClarityTrackingID="mupdzb93g6" />
+        <GoogleAnalytics GoogleTrackingID="" />
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <Provider>{children}</Provider>
       </body>

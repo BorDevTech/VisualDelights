@@ -9,8 +9,8 @@ interface ClarityRequirements {
 const ClarityAnalytics = ({ ClarityTrackingID }: ClarityRequirements) => {
   return (
     <>
-      <Script id="microsoft-clarity">
-        {` (function(c:string,l,a:Window & typeof globalThis,r,i,t,y){
+      <Script id="clarityTracking">
+        {` (function(c,l,a,r,i,t,y){
               c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
 
               t=l.createElement(r);
