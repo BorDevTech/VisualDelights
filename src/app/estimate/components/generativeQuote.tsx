@@ -11,6 +11,15 @@ import {
   Stack,
   Text,
   Image,
+  Table,
+  TableCaption,
+  TableContainer,
+  Tbody,
+  Td,
+  Tfoot,
+  Th,
+  Thead,
+  Tr,
 } from "@chakra-ui/react";
 import React from "react";
 import { BiLike, BiChat, BiShare } from "react-icons/bi";
@@ -41,6 +50,47 @@ const GenerativeQuote = ({ formData, ...props }: FormProps) => {
   } = formData;
   return (
     <Container as={Card} w={"33%"} p={"20px 20px"}>
+      <TableContainer>
+        <Table variant="simple" colorScheme="purple">
+          <TableCaption>Imperial to metric conversion factors</TableCaption>
+          <Thead>
+            <Tr>
+              <Th bgColor={`purple.600`}>To Estimate</Th>
+              <Th>Multiply</Th>
+              <Th isNumeric>by</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            <Tr>
+              <Td bgColor={`purple.600`}>Mileage</Td>
+              <Td>Miles </Td>
+              <Td isNumeric>$0.50</Td>
+            </Tr>
+            <Tr>
+              <Td bgColor={`purple.600`}>Extra Bedrooms</Td>
+              <Td>Bedrooms &ge; 3</Td>
+              <Td isNumeric>$25</Td>
+            </Tr>
+            <Tr>
+              <Td bgColor={`purple.600`}>Extra Bathrooms</Td>
+              <Td>Bathrooms &ge; 3</Td>
+              <Td isNumeric>$12.5</Td>
+            </Tr>
+            <Tr>
+              <Td bgColor={`purple.600`}>yards</Td>
+              <Td>metres (m)</Td>
+              <Td isNumeric>0.91444</Td>
+            </Tr>
+          </Tbody>
+          <Tfoot>
+            <Tr>
+              <Th>To convert</Th>
+              <Th>into</Th>
+              <Th isNumeric>multiply by</Th>
+            </Tr>
+          </Tfoot>
+        </Table>
+      </TableContainer>
       <Box>
         <Heading size={"sm"}>
           <Center>Estimate</Center>
