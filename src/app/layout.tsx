@@ -20,7 +20,7 @@ export default function RootLayout({
       <body
       // className={inter.className}
       >
-        <ClarityAnalytics ClarityTrackingID="mupdzb93g6" />
+        <ClarityAnalytics ClarityTrackingID={"mupdzb93g6"} />
         <GoogleAnalytics GoogleTrackingID="" />
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <Provider>{children}</Provider>
