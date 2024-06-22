@@ -19,12 +19,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <meta
+          name="google-site-verification"
+          content="YTF_mPpBAm2hGN6VZvdSSKwEuUpjbGQHVv-3gguO9Eo"
+        />
+      </Head>
       <body
       // className={inter.className}
       >
+        <GoogleTagManager gtmId="GTM-TNMZ283Q" />
+        <GoogleAnalytics GoogleTrackingID="G-16SCX6MGYD" />
+        <iframe
+          src={`https://www.googletagmanager.com/ns.html?id=GTM-TNMZ283Q`}
+          height="0"
+          width="0"
+          style={{ display: "none", visibility: "hidden" }}
+        ></iframe>
         <ClarityAnalytics ClarityTrackingID={"mupdzb93g6"} />
-        {/* <GoogleTagManager gtmId="GTM-TNMZ283Q" /> */}
-
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <Provider>{children}</Provider>
       </body>
