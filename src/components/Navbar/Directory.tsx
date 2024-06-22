@@ -2,6 +2,7 @@
 import { Stack, Heading } from "@chakra-ui/layout";
 
 import { Link } from "@chakra-ui/next-js";
+import { Show } from "@chakra-ui/react";
 export default function Directory() {
   const DirLinks = [
     { name: "about", href: "/about" },
@@ -15,17 +16,19 @@ export default function Directory() {
       paddingX={`20px`}
       color={`purple.600`}
     >
-      {DirLinks.map((route) => (
-        <Link
-          key={route.name}
-          href={route.href}
-          _hover={{ textDecoration: `none` }}
-        >
-          <Heading as={"h2"} size={"lg"}>
-            {route.name}
-          </Heading>
-        </Link>
-      ))}
+      <Show above="lg">
+        {DirLinks.map((route) => (
+          <Link
+            key={route.name}
+            href={route.href}
+            _hover={{ textDecoration: `none` }}
+          >
+            <Heading as={"h2"} size={"lg"}>
+              {route.name}
+            </Heading>
+          </Link>
+        ))}
+      </Show>
     </Stack>
   );
 }

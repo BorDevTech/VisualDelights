@@ -4,6 +4,7 @@ import { inter } from "./fonts";
 import { ColorModeScript, theme } from "@chakra-ui/react";
 import ClarityAnalytics from "./clarity";
 import GoogleAnalytics from "./googleAnalytics";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: { template: "Visual Delights | %s", default: `Visual Delights` },
@@ -21,6 +22,8 @@ export default function RootLayout({
       // className={inter.className}
       >
         <ClarityAnalytics ClarityTrackingID={"mupdzb93g6"} />
+
+        <GoogleTagManager gtmId="GTM-TNMZ283Q" />
         <GoogleAnalytics GoogleTrackingID={"G-16SCX6MGYD"} />
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <Provider>{children}</Provider>
