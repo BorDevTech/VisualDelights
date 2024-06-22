@@ -14,88 +14,69 @@ export default function Brand() {
       align={`center`}
       color={`purple.600`}
     >
-      <Link
-        href={`/`}
-        children={
-          <>
-            <Show above="lg">
-              <Image
-                src={imager.src}
-                alt="Butterfly"
-                w={{ lg: `100px` }}
-                margin={`0 0 0 10px`}
-                padding={{ lg: `10px 10px` }}
-              ></Image>
-            </Show>
-            <Show below="lg">
-              <Image
-                src={imager.src}
-                alt="Butterfly"
-                w={`80px`}
-                margin={`0 0 0 10px`}
-                padding={{ lg: `10px 10px` }}
-              />
-            </Show>
-          </>
-        }
-      >
-        {/* <Image
-          src={imager.src}
-          alt="Butterfly"
-          w={{ lg: `100px` }}
-          margin={`0 0 0 10px`}
-          padding={{ lg: `10px 10px` }}
-        /> */}
+      <Link href={`/`}>
+        <Show above="lg">
+          <Image
+            src={imager.src}
+            alt="Butterfly"
+            w={{ lg: `100px` }}
+            margin={`0 0 0 10px`}
+            padding={{ lg: `10px 10px` }}
+          ></Image>
+        </Show>
+        <Show below="lg">
+          <Image
+            src={imager.src}
+            alt="Butterfly"
+            w={`80px`}
+            margin={`0 0 0 10px`}
+            padding={{ lg: `10px 10px` }}
+          />
+        </Show>
       </Link>
-      <Link
-        href={`/`}
-        _hover={{ textDecoration: `none` }}
-        children={
-          <>
+      <Link href={`/`} _hover={{ textDecoration: `none` }}>
+        <Show above="lg">
+          <Heading
+            as={"h1"}
+            size={{ md: "4xl", lg: `3xl` }}
+            noOfLines={0}
+            style={playball?.style}
+            padding={`10px 10px`}
+          >
             <Show above="lg">
-              <Heading
-                as={"h1"}
-                size={{ md: "4xl", lg: `3xl` }}
-                noOfLines={0}
-                style={playball?.style}
-                padding={`10px 10px`}
-              >
-                <Show above="lg">
-                  <Flex>
-                    Visual Delights
-                    <sub style={{ alignSelf: `center` }}>
-                      <Text fontSize={"2xl"}> -cleaning services</Text>
-                    </sub>
-                  </Flex>
-                </Show>
-
-                <Show below="lg">
-                  <Flex>
-                    Visual Delights
-                    <Text fontSize={"2xl"}> -cleaning services</Text>
-                  </Flex>
-                </Show>
-              </Heading>
-            </Show>
-            <Show below="lg">
-              <Heading
-                as={"h1"}
-                size={`2xl`}
-                noOfLines={0}
-                style={playball?.style}
-                padding={`25px `}
-                margin={0}
-                justifySelf={`center`}
-              >
+              <Flex>
                 Visual Delights
-                <sub style={{ alignSelf: `center`, padding: 0, margin: 0 }}>
+                <sub style={{ alignSelf: `center` }}>
                   <Text fontSize={"2xl"}> -cleaning services</Text>
                 </sub>
-              </Heading>
+              </Flex>
             </Show>
-          </>
-        }
-      ></Link>
+
+            <Show below="lg">
+              <Flex>
+                Visual Delights
+                <Text fontSize={"2xl"}> -cleaning services</Text>
+              </Flex>
+            </Show>
+          </Heading>
+        </Show>
+        <Show below="lg">
+          <Heading
+            as={"h1"}
+            size={`2xl`}
+            noOfLines={0}
+            style={playball?.style}
+            padding={`25px `}
+            margin={0}
+            justifySelf={`center`}
+          >
+            Visual Delights
+            <sub style={{ alignSelf: `center`, padding: 0, margin: 0 }}>
+              <Text fontSize={"2xl"}> -cleaning services</Text>
+            </sub>
+          </Heading>
+        </Show>
+      </Link>
     </Stack>
   );
 }
