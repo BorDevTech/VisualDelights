@@ -19,20 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <meta
-          name="google-site-verification"
-          content="YTF_mPpBAm2hGN6VZvdSSKwEuUpjbGQHVv-3gguO9Eo"
-        />
-        <GoogleAnalytics GoogleTrackingID={"G-16SCX6MGYD"} />
-
-        <GoogleTagManager gtmId="GTM-TNMZ283Q" />
-        <ClarityAnalytics ClarityTrackingID={"mupdzb93g6"} />
-      </Head>
-
       <body
       // className={inter.className}
       >
+        <ClarityAnalytics ClarityTrackingID={"mupdzb93g6"} />
+        {/* <GoogleTagManager gtmId="GTM-TNMZ283Q" /> */}
+
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <Provider>{children}</Provider>
       </body>
